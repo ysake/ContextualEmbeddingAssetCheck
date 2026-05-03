@@ -1,44 +1,70 @@
 # ContextualEmbeddingAssetCheck
 
-`NLContextualEmbedding(language:)` の asset availability と
-`requestAssets()` の完了有無を実機で確認するための最小 SwiftUI アプリです。
+Japanese: [README.ja.md](README.ja.md)
 
-## 検証内容
+A minimal SwiftUI app for checking `NLContextualEmbedding(language:)` asset availability
+and whether `requestAssets()` completes.
 
-Run を押すと次の順でログを画面と Xcode console に出します。
+The same screen can be built for macOS, iOS, and visionOS. It logs whether contextual
+embedding assets are available for each language, whether the asset request completes,
+and whether an embedding result can actually be generated.
 
-1. device / OS / language を記録
-2. 選択した言語で `NLContextualEmbedding(language:)` が `nil` か確認
-3. `hasAvailableAssets` の初期値を記録
-4. asset request 前に `load()` を試して、失敗内容を記録
-5. `requestAssets()` を開始し、返った場合は result と `hasAvailableAssets` を記録
-6. request 後に `load()` を再試行
-7. timeout marker 秒数を超えても返らない場合は、未完了ログを記録
+## What It Checks
 
-timeout marker は `requestAssets()` を強制終了するためのものではなく、
-「指定秒数を超えても async call が戻っていない」ことを記録するための目印です。
+When you press Run, the app writes the following logs to both the screen and the Xcode console.
 
-言語は画面上の picker で切り替えられます。現在の候補は Japanese / English /
-Simplified Chinese / Traditional Chinese / Korean / French / German / Spanish です。
+1. Records the device, OS, and selected language
+2. Checks whether `NLContextualEmbedding(language:)` returns `nil` for the selected language
+3. Records the initial `hasAvailableAssets` value
+4. Calls `load()` before requesting assets and records whether it succeeds or fails
+5. Starts `requestAssets()` and, if it returns, records the result and `hasAvailableAssets`
+6. Tries `load()` again after the request
+7. If `load()` succeeds, runs `embeddingResult(for:language:)` with a short sample sentence
+8. Records the model identifier, dimension, maximum sequence length, and part of the token vectors
+9. Records a pending log if the timeout marker is reached before `requestAssets()` returns
 
-## Apple Vision Pro での実行
+The timeout marker does not cancel `requestAssets()`. It only marks that the async call
+has not returned after the selected number of seconds.
 
-Xcode で `ContextualEmbeddingAssetCheck.xcodeproj` を開き、実機の Apple Vision Pro を
-destination に選んで実行します。
+You can switch languages from the picker. The current options are Japanese, English,
+Simplified Chinese, Traditional Chinese, Korean, French, German, and Spanish.
 
-このプロジェクトは iOS app target なので、Apple Vision Pro では Xcode の destination に
-`Designed for iPad/iPhone` variant として表示されます。投稿の論点を native visionOS app として
-切り分けたい場合は、同じ `ContentView.swift` を visionOS app target に追加して同じ手順で実行してください。
+## Running
 
-## 記録するとよい項目
+Open `ContextualEmbeddingAssetCheck.xcodeproj` in Xcode, select the device or Mac you
+want to check as the destination, and run the app.
+
+You can also verify the macOS build from the command line:
+
+```sh
+xcodebuild -project ContextualEmbeddingAssetCheck.xcodeproj \
+  -scheme ContextualEmbeddingAssetCheck \
+  -configuration Debug \
+  -destination platform=macOS \
+  -derivedDataPath .build/DerivedData \
+  build
+```
+
+To check Apple Vision Pro behavior, select Apple Vision Pro as the Xcode destination
+and run the app. If you need to distinguish a native visionOS app from an iPad/iPhone
+compatibility variant, record the destination variant shown by Xcode.
+
+## Useful Items To Record
 
 - Device model
-- visionOS version
+- OS name and version
 - Xcode version
-- 実行先が native visionOS app か、Designed for iPad/iPhone variant か
-- 選択した language
+- Platform or destination variant
+- Selected language
 - `hasAvailableAssets before`
-- `load() without requestAssets` の error domain / code / localized description
-- `requestAssets()` が返ったか
-- 返った場合の result と `hasAvailableAssets after`
-- timeout marker を何秒にしたか
+- Error domain, code, and localized description from `load() without requestAssets`
+- Whether `requestAssets()` returned
+- If it returned, the result and `hasAvailableAssets after`
+- Result of `load() after requestAssets`
+- `modelIdentifier`
+- `model dimension`
+- `maximumSequenceLength`
+- `embeddingResult language`
+- `embeddingResult sequenceLength`
+- `enumerated token vectors`
+- Timeout marker value
