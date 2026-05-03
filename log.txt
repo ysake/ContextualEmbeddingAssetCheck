@@ -1,0 +1,102 @@
+[21:09:31.308] Device: Apple Vision Pro
+[21:09:31.309] System: visionOS Version 26.4 (Build 23O247)
+[21:09:31.309] Language: English (en)
+[21:09:31.373] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Latn' - '5C45D94E-BAB4-4927-94B6-8B5745C46289' embedding model
+[21:09:31.374] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[21:09:31.374] requestAssets() started
+filesystem error: in create_directories: Operation not permitted ["/var/db/com.apple.naturallanguaged/com.apple.e5rt.e5bundlecache"]
+[21:09:44.246] requestAssets result: NLContextualEmbeddingAssetsResult(rawValue: 0)
+[21:09:44.246] hasAvailableAssets after: true
+[21:09:44.301] load() after requestAssets succeeded
+[21:09:44.301] smoke test input: The weather is nice today.
+[21:09:44.301] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:09:44.301] model dimension: 512
+[21:09:44.301] maximumSequenceLength: 256
+[21:09:44.318] embeddingResult language: en
+[21:09:44.318] embeddingResult sequenceLength: 8
+[21:09:44.318] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0198, -0.0103, 0.0360, -0.0735]
+[21:09:44.318] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
+[21:09:44.318] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
+[21:09:44.319] enumerated token vectors: 8
+
+[21:12:35.937] Device: Apple Vision Pro
+[21:12:35.937] System: visionOS Version 26.4 (Build 23O247)
+[21:12:35.937] Language: Japanese (ja)
+[21:12:35.938] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[21:12:35.938] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[21:12:35.938] requestAssets() started
+[21:13:12.189] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+
+[21:13:49.203] Device: Apple Vision Pro
+[21:13:49.203] System: visionOS Version 26.4 (Build 23O247)
+[21:13:49.203] Language: English (en)
+[21:13:49.204] hasAvailableAssets before: true
+[21:13:49.277] load() without requestAssets succeeded
+[21:13:49.277] smoke test input: The weather is nice today.
+[21:13:49.277] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:13:49.277] model dimension: 512
+[21:13:49.277] maximumSequenceLength: 256
+[21:13:49.292] embeddingResult language: en
+[21:13:49.292] embeddingResult sequenceLength: 8
+[21:13:49.293] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0198, -0.0103, 0.0360, -0.0735]
+[21:13:49.293] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
+[21:13:49.293] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
+[21:13:49.293] enumerated token vectors: 8
+
+[21:14:47.536] Device: Apple Vision Pro
+[21:14:47.536] System: visionOS Version 26.4 (Build 23O247)
+[21:14:47.537] Language: Japanese (ja)
+[21:14:47.538] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[21:14:47.538] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[21:14:47.538] requestAssets() started
+[21:17:41.491] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+
+[21:18:07.899] Device: Apple Vision Pro
+[21:18:07.899] System: visionOS Version 26.4 (Build 23O247)
+[21:18:07.899] Language: Simplified Chinese (zh-Hans)
+[21:18:07.901] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[21:18:07.901] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[21:18:07.901] requestAssets() started
+[21:19:53.103] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+
+[21:20:34.129] Device: Apple Vision Pro
+[21:20:34.129] System: visionOS Version 26.4 (Build 23O247)
+[21:20:34.129] Language: French (fr)
+[21:20:34.130] hasAvailableAssets before: true
+[21:20:34.202] load() without requestAssets succeeded
+[21:20:34.202] smoke test input: Il fait beau aujourd'hui.
+[21:20:34.202] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:20:34.202] model dimension: 512
+[21:20:34.202] maximumSequenceLength: 256
+[21:20:34.217] embeddingResult language: fr
+[21:20:34.217] embeddingResult sequenceLength: 12
+[21:20:34.217] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.1776, -0.0636, -0.0282, -0.0243]
+[21:20:34.218] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0054, -0.0063, 0.0017, -0.0054]
+[21:20:34.218] token 3: "Il" range=0..<2 vectorCount=512 firstValues=[-0.1721, -0.1831, -0.1060, 0.0800]
+[21:20:34.218] enumerated token vectors: 12
+
+プロセス再起動
+
+nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+<<<< FigAudioSession(AV) >>>> signalled err=-19224 at <>:612
+Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context menu is visible. This won't do anything.
+[21:22:24.258] Device: Apple Vision Pro
+[21:22:24.259] System: visionOS Version 26.4 (Build 23O247)
+[21:22:24.260] Language: English (en)
+[21:22:25.038] hasAvailableAssets before: true
+[21:22:25.090] load() without requestAssets succeeded
+[21:22:25.090] smoke test input: The weather is nice today.
+[21:22:25.090] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:22:25.090] model dimension: 512
+[21:22:25.090] maximumSequenceLength: 256
+[21:22:25.105] embeddingResult language: en
+[21:22:25.106] embeddingResult sequenceLength: 8
+[21:22:25.106] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0198, -0.0103, 0.0360, -0.0735]
+[21:22:25.106] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
+[21:22:25.106] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
+[21:22:25.106] enumerated token vectors: 8
