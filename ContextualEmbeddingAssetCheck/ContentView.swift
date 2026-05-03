@@ -12,16 +12,18 @@ import UIKit
 
 struct ContentView: View {
     @StateObject private var runner = EmbeddingAssetCheckRunner()
+    @State private var selectedLanguage = EmbeddingLanguageOption.japanese
     @State private var timeoutSeconds = 180.0
 
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 16) {
                 statusPanel
+                languagePicker
 
                 HStack(spacing: 12) {
                     Button {
-                        runner.start(timeoutSeconds: timeoutSeconds)
+                        runner.start(languageOption: selectedLanguage, timeoutSeconds: timeoutSeconds)
                     } label: {
                         Label("Run", systemImage: "play.fill")
                     }
@@ -75,7 +77,7 @@ struct ContentView: View {
             GridRow {
                 Text("Language")
                     .foregroundStyle(.secondary)
-                Text("Japanese")
+                Text(selectedLanguage.displayName)
             }
             GridRow {
                 Text("State")
@@ -97,6 +99,17 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
+    private var languagePicker: some View {
+        Picker("Language", selection: $selectedLanguage) {
+            ForEach(EmbeddingLanguageOption.allCases) { option in
+                Text(option.displayName)
+                    .tag(option)
+            }
+        }
+        .pickerStyle(.menu)
+        .disabled(runner.isRunning)
+    }
+
     private var timeoutControl: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -108,6 +121,61 @@ struct ContentView: View {
             }
             Slider(value: $timeoutSeconds, in: 30...600, step: 30)
                 .disabled(runner.isRunning)
+        }
+    }
+}
+
+enum EmbeddingLanguageOption: String, CaseIterable, Identifiable {
+    case japanese
+    case english
+    case simplifiedChinese
+    case traditionalChinese
+    case korean
+    case french
+    case german
+    case spanish
+
+    var id: Self { self }
+
+    var displayName: String {
+        switch self {
+        case .japanese:
+            return "Japanese"
+        case .english:
+            return "English"
+        case .simplifiedChinese:
+            return "Simplified Chinese"
+        case .traditionalChinese:
+            return "Traditional Chinese"
+        case .korean:
+            return "Korean"
+        case .french:
+            return "French"
+        case .german:
+            return "German"
+        case .spanish:
+            return "Spanish"
+        }
+    }
+
+    var nlLanguage: NLLanguage {
+        switch self {
+        case .japanese:
+            return .japanese
+        case .english:
+            return .english
+        case .simplifiedChinese:
+            return .simplifiedChinese
+        case .traditionalChinese:
+            return .traditionalChinese
+        case .korean:
+            return .korean
+        case .french:
+            return .french
+        case .german:
+            return .german
+        case .spanish:
+            return .spanish
         }
     }
 }
@@ -131,7 +199,7 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
     private var startedAt: Date?
     private var requestFinished = false
 
-    func start(timeoutSeconds: TimeInterval) {
+    func start(languageOption: EmbeddingLanguageOption, timeoutSeconds: TimeInterval) {
         cancel()
 
         entries.removeAll()
@@ -144,12 +212,12 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
 
         log("Device: \(UIDevice.current.model)")
         log("System: \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
-        log("Language: NLLanguage.japanese")
+        log("Language: \(languageOption.displayName) (\(languageOption.nlLanguage.rawValue))")
 
-        guard let embedding = NLContextualEmbedding(language: .japanese) else {
+        guard let embedding = NLContextualEmbedding(language: languageOption.nlLanguage) else {
             stateText = "Embedding unavailable"
             isRunning = false
-            log("NLContextualEmbedding(language: .japanese) returned nil")
+            log("NLContextualEmbedding(language: \(languageOption.nlLanguage.rawValue)) returned nil")
             return
         }
 

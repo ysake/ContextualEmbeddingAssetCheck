@@ -1,6 +1,6 @@
 # ContextualEmbeddingAssetCheck
 
-`NLContextualEmbedding(language: .japanese)` の asset availability と
+`NLContextualEmbedding(language:)` の asset availability と
 `requestAssets()` の完了有無を実機で確認するための最小 SwiftUI アプリです。
 
 ## 検証内容
@@ -8,7 +8,7 @@
 Run を押すと次の順でログを画面と Xcode console に出します。
 
 1. device / OS / language を記録
-2. `NLContextualEmbedding(language: .japanese)` が `nil` か確認
+2. 選択した言語で `NLContextualEmbedding(language:)` が `nil` か確認
 3. `hasAvailableAssets` の初期値を記録
 4. asset request 前に `load()` を試して、失敗内容を記録
 5. `requestAssets()` を開始し、返った場合は result と `hasAvailableAssets` を記録
@@ -17,6 +17,9 @@ Run を押すと次の順でログを画面と Xcode console に出します。
 
 timeout marker は `requestAssets()` を強制終了するためのものではなく、
 「指定秒数を超えても async call が戻っていない」ことを記録するための目印です。
+
+言語は画面上の picker で切り替えられます。現在の候補は Japanese / English /
+Simplified Chinese / Traditional Chinese / Korean / French / German / Spanish です。
 
 ## Apple Vision Pro での実行
 
@@ -33,6 +36,7 @@ destination に選んで実行します。
 - visionOS version
 - Xcode version
 - 実行先が native visionOS app か、Designed for iPad/iPhone variant か
+- 選択した language
 - `hasAvailableAssets before`
 - `load() without requestAssets` の error domain / code / localized description
 - `requestAssets()` が返ったか
