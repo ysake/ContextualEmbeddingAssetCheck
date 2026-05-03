@@ -178,6 +178,27 @@ enum EmbeddingLanguageOption: String, CaseIterable, Identifiable {
             return .spanish
         }
     }
+
+    var sampleText: String {
+        switch self {
+        case .japanese:
+            return "今日は良い天気です。"
+        case .english:
+            return "The weather is nice today."
+        case .simplifiedChinese:
+            return "今天天气很好。"
+        case .traditionalChinese:
+            return "今天天氣很好。"
+        case .korean:
+            return "오늘 날씨가 좋습니다."
+        case .french:
+            return "Il fait beau aujourd'hui."
+        case .german:
+            return "Heute ist das Wetter schoen."
+        case .spanish:
+            return "Hoy hace buen tiempo."
+        }
+    }
 }
 
 @MainActor
@@ -231,6 +252,7 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
             isRunning = false
             requestFinished = true
             log("load() without requestAssets succeeded")
+            runSmokeTest(embedding: embedding, languageOption: languageOption)
             return
         } catch {
             log("load() without requestAssets failed: \(describe(error))")
@@ -254,7 +276,7 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
         requestTask = Task { [weak self] in
             do {
                 let result = try await embedding.requestAssets()
-                self?.finishRequestAssets(resultDescription: String(describing: result), embedding: embedding)
+                self?.finishRequestAssets(resultDescription: String(describing: result), embedding: embedding, languageOption: languageOption)
             } catch {
                 self?.finishWithError(error)
             }
@@ -276,7 +298,7 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
         }
     }
 
-    private func finishRequestAssets(resultDescription: String, embedding: NLContextualEmbedding) {
+    private func finishRequestAssets(resultDescription: String, embedding: NLContextualEmbedding, languageOption: EmbeddingLanguageOption) {
         guard isRunning else {
             log("requestAssets() returned after cancellation: \(resultDescription)")
             return
@@ -296,6 +318,7 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
             try embedding.load()
             stateText = "Load succeeded"
             log("load() after requestAssets succeeded")
+            runSmokeTest(embedding: embedding, languageOption: languageOption)
         } catch {
             stateText = "Load failed"
             log("load() after requestAssets failed: \(describe(error))")
@@ -326,6 +349,43 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
         guard isRunning, !requestFinished else { return }
         stateText = "Still running after timeout marker"
         log("requestAssets() has not returned after \(Int(timeoutSeconds)) seconds")
+    }
+
+    private func runSmokeTest(embedding: NLContextualEmbedding, languageOption: EmbeddingLanguageOption) {
+        let sampleText = languageOption.sampleText
+        log("smoke test input: \(sampleText)")
+        log("modelIdentifier: \(embedding.modelIdentifier)")
+        log("model dimension: \(embedding.dimension)")
+        log("maximumSequenceLength: \(embedding.maximumSequenceLength)")
+
+        do {
+            let result = try embedding.embeddingResult(for: sampleText, language: languageOption.nlLanguage)
+            log("embeddingResult language: \(result.language.rawValue)")
+            log("embeddingResult sequenceLength: \(result.sequenceLength)")
+
+            var tokenCount = 0
+            result.enumerateTokenVectors(in: sampleText.startIndex..<sampleText.endIndex) { vector, range in
+                tokenCount += 1
+
+                if tokenCount <= 3 {
+                    let tokenText = String(sampleText[range])
+                    let previewValues = vector.prefix(4).map { String(format: "%.4f", $0) }.joined(separator: ", ")
+                    log("token \(tokenCount): \"\(tokenText)\" range=\(rangeDescription(range, in: sampleText)) vectorCount=\(vector.count) firstValues=[\(previewValues)]")
+                }
+
+                return true
+            }
+
+            log("enumerated token vectors: \(tokenCount)")
+        } catch {
+            log("embeddingResult smoke test failed: \(describe(error))")
+        }
+    }
+
+    private func rangeDescription(_ range: Range<String.Index>, in text: String) -> String {
+        let lowerBound = text.distance(from: text.startIndex, to: range.lowerBound)
+        let upperBound = text.distance(from: text.startIndex, to: range.upperBound)
+        return "\(lowerBound)..<\(upperBound)"
     }
 
     private func tick() {
