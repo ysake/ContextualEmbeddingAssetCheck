@@ -6,9 +6,13 @@
 //
 
 import Combine
+import Foundation
 import NaturalLanguage
 import SwiftUI
+
+#if canImport(UIKit)
 import UIKit
+#endif
 
 struct ContentView: View {
     @StateObject private var runner = EmbeddingAssetCheckRunner()
@@ -231,8 +235,8 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
         elapsedText = "0.0 sec"
         assetsText = "Not checked"
 
-        log("Device: \(UIDevice.current.model)")
-        log("System: \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
+        log("Device: \(PlatformInfo.deviceModel)")
+        log("System: \(PlatformInfo.systemName) \(PlatformInfo.systemVersion)")
         log("Language: \(languageOption.displayName) (\(languageOption.nlLanguage.rawValue))")
 
         guard let embedding = NLContextualEmbedding(language: languageOption.nlLanguage) else {
@@ -404,6 +408,28 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
     private func describe(_ error: Error) -> String {
         let nsError = error as NSError
         return "\(nsError.domain) \(nsError.code): \(nsError.localizedDescription)"
+    }
+}
+
+private enum PlatformInfo {
+    static var deviceModel: String {
+        #if os(macOS)
+        return Host.current().localizedName ?? "Mac"
+        #else
+        return UIDevice.current.model
+        #endif
+    }
+
+    static var systemName: String {
+        #if os(macOS)
+        return "macOS"
+        #else
+        return UIDevice.current.systemName
+        #endif
+    }
+
+    static var systemVersion: String {
+        ProcessInfo.processInfo.operatingSystemVersionString
     }
 }
 
