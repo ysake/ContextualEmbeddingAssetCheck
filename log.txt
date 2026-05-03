@@ -100,3 +100,127 @@ Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context 
 [21:22:25.106] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
 [21:22:25.106] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
 [21:22:25.106] enumerated token vectors: 8
+
+iPhone実機に切り替え
+
+[21:49:35.062] Device: iPhone
+[21:49:35.064] System: iOS Version 26.4.2 (Build 23E261)
+[21:49:35.064] Language: Japanese (ja)
+[21:49:35.182] hasAvailableAssets before: true
+[21:49:35.209] load() without requestAssets succeeded
+[21:49:35.209] smoke test input: 今日は良い天気です。
+[21:49:35.209] modelIdentifier: 12784592-5D67-4F4C-83D6-A346519146AE
+[21:49:35.209] model dimension: 512
+[21:49:35.209] maximumSequenceLength: 256
+[21:49:35.267] embeddingResult language: ja
+[21:49:35.267] embeddingResult sequenceLength: 7
+[21:49:35.268] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0092, 0.0110, 0.0407, 0.0262]
+[21:49:35.268] token 2: "今日" range=0..<2 vectorCount=512 firstValues=[0.1293, -0.0820, -0.2043, 0.0812]
+[21:49:35.268] token 3: "は" range=2..<3 vectorCount=512 firstValues=[0.2805, 0.1365, -0.0662, 0.4058]
+[21:49:35.268] enumerated token vectors: 7
+Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context menu is visible. This won't do anything.
+[21:49:44.495] Device: iPhone
+[21:49:44.495] System: iOS Version 26.4.2 (Build 23E261)
+[21:49:44.496] Language: English (en)
+[21:49:44.570] hasAvailableAssets before: true
+[21:49:44.614] load() without requestAssets succeeded
+[21:49:44.614] smoke test input: The weather is nice today.
+[21:49:44.614] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:49:44.614] model dimension: 512
+[21:49:44.614] maximumSequenceLength: 256
+[21:49:44.668] embeddingResult language: en
+[21:49:44.668] embeddingResult sequenceLength: 8
+[21:49:44.668] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0203, -0.0107, 0.0365, -0.0723]
+[21:49:44.668] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0074]
+[21:49:44.668] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0437, 0.0066, -0.0558, 0.0270]
+[21:49:44.669] enumerated token vectors: 8
+[21:49:51.446] Device: iPhone
+[21:49:51.447] System: iOS Version 26.4.2 (Build 23E261)
+[21:49:51.447] Language: Simplified Chinese (zh-Hans)
+[21:49:51.448] hasAvailableAssets before: true
+[21:49:51.506] load() without requestAssets succeeded
+[21:49:51.506] smoke test input: 今天天气很好。
+[21:49:51.506] modelIdentifier: 12784592-5D67-4F4C-83D6-A346519146AE
+[21:49:51.506] model dimension: 512
+[21:49:51.506] maximumSequenceLength: 256
+[21:49:51.526] embeddingResult language: zh-Hans
+[21:49:51.526] embeddingResult sequenceLength: 6
+[21:49:51.526] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0119, 0.0150, 0.0364, 0.0179]
+[21:49:51.526] token 2: "今天" range=0..<2 vectorCount=512 firstValues=[0.1088, -0.0375, -0.3081, 0.2683]
+[21:49:51.526] token 3: "天气" range=2..<4 vectorCount=512 firstValues=[0.0692, -0.1418, -0.2448, 0.1219]
+[21:49:51.526] enumerated token vectors: 6
+[21:49:57.364] Device: iPhone
+[21:49:57.364] System: iOS Version 26.4.2 (Build 23E261)
+[21:49:57.365] Language: Traditional Chinese (zh-Hant)
+[21:49:57.366] hasAvailableAssets before: true
+[21:49:57.424] load() without requestAssets succeeded
+[21:49:57.424] smoke test input: 今天天氣很好。
+[21:49:57.425] modelIdentifier: 12784592-5D67-4F4C-83D6-A346519146AE
+[21:49:57.425] model dimension: 512
+[21:49:57.425] maximumSequenceLength: 256
+[21:49:57.444] embeddingResult language: zh-Hant
+[21:49:57.444] embeddingResult sequenceLength: 7
+[21:49:57.444] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0005, 0.0090, 0.0440, 0.0170]
+[21:49:57.444] token 2: "今天" range=0..<2 vectorCount=512 firstValues=[0.2910, -0.1133, -0.1082, 0.1846]
+[21:49:57.444] token 3: "天" range=2..<3 vectorCount=512 firstValues=[-0.0692, -0.1521, 0.1875, 0.1249]
+[21:49:57.444] enumerated token vectors: 7
+[21:50:01.981] Device: iPhone
+[21:50:01.982] System: iOS Version 26.4.2 (Build 23E261)
+[21:50:01.982] Language: Korean (ko)
+[21:50:01.983] hasAvailableAssets before: true
+[21:50:02.042] load() without requestAssets succeeded
+[21:50:02.043] smoke test input: 오늘 날씨가 좋습니다.
+[21:50:02.043] modelIdentifier: 12784592-5D67-4F4C-83D6-A346519146AE
+[21:50:02.043] model dimension: 512
+[21:50:02.043] maximumSequenceLength: 256
+[21:50:02.060] embeddingResult language: ko
+[21:50:02.060] embeddingResult sequenceLength: 5
+[21:50:02.060] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0120, 0.0109, 0.0395, 0.0153]
+[21:50:02.060] token 2: "오늘" range=0..<2 vectorCount=512 firstValues=[0.1528, -0.0988, -0.0289, 0.0032]
+[21:50:02.060] token 3: "날씨가" range=3..<6 vectorCount=512 firstValues=[-0.0136, -0.0828, -0.0713, -0.0026]
+[21:50:02.060] enumerated token vectors: 5
+[21:50:05.915] Device: iPhone
+[21:50:05.916] System: iOS Version 26.4.2 (Build 23E261)
+[21:50:05.916] Language: French (fr)
+[21:50:05.918] hasAvailableAssets before: true
+[21:50:05.991] load() without requestAssets succeeded
+[21:50:05.991] smoke test input: Il fait beau aujourd'hui.
+[21:50:05.991] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:50:05.991] model dimension: 512
+[21:50:05.991] maximumSequenceLength: 256
+[21:50:06.007] embeddingResult language: fr
+[21:50:06.007] embeddingResult sequenceLength: 12
+[21:50:06.007] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.1793, -0.0634, -0.0291, -0.0245]
+[21:50:06.007] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0054, -0.0062, 0.0016, -0.0055]
+[21:50:06.007] token 3: "Il" range=0..<2 vectorCount=512 firstValues=[-0.1722, -0.1833, -0.1083, 0.0786]
+[21:50:06.007] enumerated token vectors: 12
+[21:50:10.616] Device: iPhone
+[21:50:10.617] System: iOS Version 26.4.2 (Build 23E261)
+[21:50:10.617] Language: German (de)
+[21:50:10.619] hasAvailableAssets before: true
+[21:50:10.692] load() without requestAssets succeeded
+[21:50:10.692] smoke test input: Heute ist das Wetter schoen.
+[21:50:10.692] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:50:10.692] model dimension: 512
+[21:50:10.692] maximumSequenceLength: 256
+[21:50:10.706] embeddingResult language: de
+[21:50:10.706] embeddingResult sequenceLength: 11
+[21:50:10.706] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0090, -0.0309, -0.0032, -0.2881]
+[21:50:10.706] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0022, -0.0043, 0.0044, -0.0107]
+[21:50:10.706] token 3: "Heute" range=0..<5 vectorCount=512 firstValues=[-0.0664, -0.0950, 0.0341, -0.0988]
+[21:50:10.706] enumerated token vectors: 11
+[21:50:14.600] Device: iPhone
+[21:50:14.601] System: iOS Version 26.4.2 (Build 23E261)
+[21:50:14.601] Language: Spanish (es)
+[21:50:14.602] hasAvailableAssets before: true
+[21:50:14.677] load() without requestAssets succeeded
+[21:50:14.677] smoke test input: Hoy hace buen tiempo.
+[21:50:14.677] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[21:50:14.677] model dimension: 512
+[21:50:14.677] maximumSequenceLength: 256
+[21:50:14.690] embeddingResult language: es
+[21:50:14.690] embeddingResult sequenceLength: 7
+[21:50:14.690] token 1: "" range=0..<0 vectorCount=512 firstValues=[0.0242, -0.0365, 0.1450, -0.1056]
+[21:50:14.690] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0044, -0.0063, 0.0111, -0.0088]
+[21:50:14.690] token 3: "Hoy" range=0..<3 vectorCount=512 firstValues=[-0.0976, -0.1260, 0.0276, -0.0427]
+[21:50:14.690] enumerated token vectors: 7
