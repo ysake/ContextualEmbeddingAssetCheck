@@ -224,3 +224,164 @@ Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context 
 [21:50:14.690] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0044, -0.0063, 0.0111, -0.0088]
 [21:50:14.690] token 3: "Hoy" range=0..<3 vectorCount=512 firstValues=[-0.0976, -0.1260, 0.0276, -0.0427]
 [21:50:14.690] enumerated token vectors: 7
+
+Vision Proに切り替え
+
+nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+<<<< FigAudioSession(AV) >>>> signalled err=-19224 at <>:612
+[22:04:17.131] Device: Apple Vision Pro
+[22:04:17.132] System: visionOS Version 26.5 (Build 23O5468a)
+[22:04:17.132] Language: Japanese (ja)
+[22:04:18.007] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[22:04:18.008] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[22:04:18.008] requestAssets() started
+de-activating session 75098 after timeout
+[22:09:23.569] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context menu is visible. This won't do anything.
+[22:09:44.823] Device: Apple Vision Pro
+[22:09:44.823] System: visionOS Version 26.5 (Build 23O5468a)
+[22:09:44.824] Language: Simplified Chinese (zh-Hans)
+[22:09:44.825] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[22:09:44.826] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[22:09:44.826] requestAssets() started
+de-activating session 75098 after timeout
+[22:14:50.387] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+Reading from public effective user settings.
+[22:17:40.711] Device: Apple Vision Pro
+[22:17:40.712] System: visionOS Version 26.5 (Build 23O5468a)
+[22:17:40.712] Language: Japanese (ja)
+[22:17:40.713] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[22:17:40.713] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[22:17:40.713] requestAssets() started
+[22:18:16.475] Cancelled by user
+[22:18:22.242] Device: Apple Vision Pro
+[22:18:22.243] System: visionOS Version 26.5 (Build 23O5468a)
+[22:18:22.243] Language: English (en)
+[22:18:22.314] hasAvailableAssets before: true
+Failed to load embedding from MIL representation: filesystem error: in create_directories: Operation not permitted ["/var/db/com.apple.naturallanguaged/com.apple.e5rt.e5bundlecache/23O5468a"]
+filesystem error: in create_directories: Operation not permitted ["/var/db/com.apple.naturallanguaged/com.apple.e5rt.e5bundlecache/23O5468a"]
+Failed to load embedding model 'mul_Latn' - '5C45D94E-BAB4-4927-94B6-8B5745C46289'
+[22:18:22.376] load() without requestAssets failed: NLNaturalLanguageErrorDomain 7: Embedding model requires compilation
+[22:18:22.376] requestAssets() started
+filesystem error: in create_directories: Operation not permitted ["/var/db/com.apple.naturallanguaged/com.apple.e5rt.e5bundlecache/23O5468a"]
+[22:18:23.132] requestAssets result: NLContextualEmbeddingAssetsResult(rawValue: 0)
+[22:18:23.132] hasAvailableAssets after: true
+[22:18:23.181] load() after requestAssets succeeded
+[22:18:23.181] smoke test input: The weather is nice today.
+[22:18:23.181] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:18:23.181] model dimension: 512
+[22:18:23.181] maximumSequenceLength: 256
+[22:18:23.201] embeddingResult language: en
+[22:18:23.201] embeddingResult sequenceLength: 8
+[22:18:23.201] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0198, -0.0103, 0.0360, -0.0735]
+[22:18:23.201] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
+[22:18:23.202] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
+[22:18:23.202] enumerated token vectors: 8
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+_play: no name
+[22:19:10.218] Device: Apple Vision Pro
+[22:19:10.218] System: visionOS Version 26.5 (Build 23O5468a)
+[22:19:10.218] Language: French (fr)
+[22:19:10.220] hasAvailableAssets before: true
+[22:19:10.295] load() without requestAssets succeeded
+[22:19:10.296] smoke test input: Il fait beau aujourd'hui.
+[22:19:10.296] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:19:10.296] model dimension: 512
+[22:19:10.296] maximumSequenceLength: 256
+[22:19:10.310] embeddingResult language: fr
+[22:19:10.310] embeddingResult sequenceLength: 12
+[22:19:10.310] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.1776, -0.0636, -0.0282, -0.0243]
+[22:19:10.310] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0054, -0.0063, 0.0017, -0.0054]
+[22:19:10.310] token 3: "Il" range=0..<2 vectorCount=512 firstValues=[-0.1721, -0.1831, -0.1060, 0.0800]
+[22:19:10.311] enumerated token vectors: 12
+[22:19:15.473] Device: Apple Vision Pro
+[22:19:15.474] System: visionOS Version 26.5 (Build 23O5468a)
+[22:19:15.474] Language: German (de)
+[22:19:15.475] hasAvailableAssets before: true
+[22:19:15.550] load() without requestAssets succeeded
+[22:19:15.550] smoke test input: Heute ist das Wetter schoen.
+[22:19:15.550] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:19:15.550] model dimension: 512
+[22:19:15.550] maximumSequenceLength: 256
+[22:19:15.564] embeddingResult language: de
+[22:19:15.564] embeddingResult sequenceLength: 11
+[22:19:15.565] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0090, -0.0306, -0.0036, -0.2876]
+[22:19:15.565] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0023, -0.0043, 0.0044, -0.0107]
+[22:19:15.565] token 3: "Heute" range=0..<5 vectorCount=512 firstValues=[-0.0690, -0.0936, 0.0358, -0.0980]
+[22:19:15.565] enumerated token vectors: 11
+[22:19:21.205] Device: Apple Vision Pro
+[22:19:21.206] System: visionOS Version 26.5 (Build 23O5468a)
+[22:19:21.206] Language: German (de)
+[22:19:21.207] hasAvailableAssets before: true
+[22:19:21.287] load() without requestAssets succeeded
+[22:19:21.287] smoke test input: Heute ist das Wetter schoen.
+[22:19:21.287] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:19:21.287] model dimension: 512
+[22:19:21.287] maximumSequenceLength: 256
+[22:19:21.302] embeddingResult language: de
+[22:19:21.302] embeddingResult sequenceLength: 11
+[22:19:21.302] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0090, -0.0306, -0.0036, -0.2876]
+[22:19:21.302] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0023, -0.0043, 0.0044, -0.0107]
+[22:19:21.303] token 3: "Heute" range=0..<5 vectorCount=512 firstValues=[-0.0690, -0.0936, 0.0358, -0.0980]
+[22:19:21.303] enumerated token vectors: 11
+[22:19:24.438] Device: Apple Vision Pro
+[22:19:24.439] System: visionOS Version 26.5 (Build 23O5468a)
+[22:19:24.439] Language: Spanish (es)
+[22:19:24.440] hasAvailableAssets before: true
+[22:19:24.515] load() without requestAssets succeeded
+[22:19:24.515] smoke test input: Hoy hace buen tiempo.
+[22:19:24.515] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:19:24.515] model dimension: 512
+[22:19:24.515] maximumSequenceLength: 256
+[22:19:24.529] embeddingResult language: es
+[22:19:24.529] embeddingResult sequenceLength: 7
+[22:19:24.529] token 1: "" range=0..<0 vectorCount=512 firstValues=[0.0247, -0.0356, 0.1454, -0.1048]
+[22:19:24.530] token 2: "" range=0..<0 vectorCount=512 firstValues=[-0.0043, -0.0063, 0.0111, -0.0089]
+[22:19:24.530] token 3: "Hoy" range=0..<3 vectorCount=512 firstValues=[-0.0965, -0.1259, 0.0270, -0.0429]
+[22:19:24.530] enumerated token vectors: 7
+
+プロセス再起動
+
+nw_socket_copy_info [C1:2] getsockopt TCP_INFO failed [102: Operation not supported on socket]
+nw_socket_copy_info getsockopt TCP_INFO failed [102: Operation not supported on socket]
+fence tx observer ac0f timed out after 0.600000
+<<<< FigAudioSession(AV) >>>> signalled err=-19224 at <>:612
+[22:20:51.065] Device: Apple Vision Pro
+[22:20:51.066] System: visionOS Version 26.5 (Build 23O5468a)
+[22:20:51.066] Language: Japanese (ja)
+[22:20:52.076] hasAvailableAssets before: false
+Failed to locate assets for 'mul_Hani' - '12784592-5D67-4F4C-83D6-A346519146AE' embedding model
+[22:20:52.076] load() without requestAssets failed: NLNaturalLanguageErrorDomain 8: Failed to locate embedding model
+[22:20:52.076] requestAssets() started
+de-activating session 7587d after timeout
+[22:25:57.607] requestAssets() threw: NLNaturalLanguageErrorDomain 7: Asset download request timed out
+Called -[UIContextMenuInteraction updateVisibleMenuWithBlock:] while no context menu is visible. This won't do anything.
+[22:27:40.608] Device: Apple Vision Pro
+[22:27:40.608] System: visionOS Version 26.5 (Build 23O5468a)
+[22:27:40.608] Language: English (en)
+[22:27:40.674] hasAvailableAssets before: true
+[22:27:40.725] load() without requestAssets succeeded
+[22:27:40.725] smoke test input: The weather is nice today.
+[22:27:40.725] modelIdentifier: 5C45D94E-BAB4-4927-94B6-8B5745C46289
+[22:27:40.725] model dimension: 512
+[22:27:40.725] maximumSequenceLength: 256
+[22:27:40.740] embeddingResult language: en
+[22:27:40.740] embeddingResult sequenceLength: 8
+[22:27:40.740] token 1: "" range=0..<0 vectorCount=512 firstValues=[-0.0198, -0.0103, 0.0360, -0.0735]
+[22:27:40.740] token 2: "" range=0..<0 vectorCount=512 firstValues=[0.0006, -0.0042, 0.0022, -0.0075]
+[22:27:40.740] token 3: "The" range=0..<3 vectorCount=512 firstValues=[0.0451, 0.0061, -0.0561, 0.0263]
+[22:27:40.741] enumerated token vectors: 8
