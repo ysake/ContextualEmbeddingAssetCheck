@@ -10,6 +10,10 @@ import Foundation
 import NaturalLanguage
 import SwiftUI
 
+#if canImport(AppKit)
+import AppKit
+#endif
+
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -18,6 +22,7 @@ struct ContentView: View {
     @StateObject private var runner = EmbeddingAssetCheckRunner()
     @State private var selectedLanguage = EmbeddingLanguageOption.japanese
     @State private var timeoutSeconds = 180.0
+    @State private var copiedLog = false
 
     var body: some View {
         NavigationStack {
@@ -47,8 +52,27 @@ struct ContentView: View {
 
                 Divider()
 
-                Text("Log")
-                    .font(.headline)
+                HStack {
+                    Text("Log")
+                        .font(.headline)
+
+                    Spacer()
+
+                    Button {
+                        Clipboard.copy(runner.logText)
+                        copiedLog = true
+
+                        Task { @MainActor in
+                            try? await Task.sleep(for: .seconds(2))
+                            copiedLog = false
+                        }
+                    } label: {
+                        Label(copiedLog ? "Copied" : "Copy All", systemImage: copiedLog ? "checkmark" : "doc.on.doc")
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(runner.entries.isEmpty)
+                    .help("Copy the full log")
+                }
 
                 ScrollViewReader { proxy in
                     ScrollView {
@@ -68,6 +92,9 @@ struct ContentView: View {
                         withAnimation {
                             proxy.scrollTo(lastID, anchor: .bottom)
                         }
+                    }
+                    .onChange(of: runner.entries.count) { _, _ in
+                        copiedLog = false
                     }
                 }
             }
@@ -217,6 +244,10 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
     @Published private(set) var stateText = "Idle"
     @Published private(set) var elapsedText = "0.0 sec"
     @Published private(set) var assetsText = "Not checked"
+
+    var logText: String {
+        entries.map(\.text).joined(separator: "\n")
+    }
 
     private var requestTask: Task<Void, Never>?
     private var watchdogTask: Task<Void, Never>?
@@ -408,6 +439,17 @@ final class EmbeddingAssetCheckRunner: ObservableObject {
     private func describe(_ error: Error) -> String {
         let nsError = error as NSError
         return "\(nsError.domain) \(nsError.code): \(nsError.localizedDescription)"
+    }
+}
+
+private enum Clipboard {
+    static func copy(_ text: String) {
+        #if canImport(AppKit)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(text, forType: .string)
+        #elseif canImport(UIKit)
+        UIPasteboard.general.string = text
+        #endif
     }
 }
 
